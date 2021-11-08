@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<title>TESTING PAGE</title>
+<head>
+<script>
+function secondsLeft() {
+  now = new Date()
+  mins = now.getMinutes();
+  secs = now.getSeconds();
+  document.f1.t1.value = 60 * 60 - (mins * 60 + secs);
+}
+
+function init() {
+  timer = setInterval("secondsLeft()", 1000);
+}
+</script>
+</head>
+<body onload="init()">
+<form name="f1" onsubmit="return false">
+There are <input type="text" name="t1" size=4> seconds left until the next hour.
+</form>
+</body>
