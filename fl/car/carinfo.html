@@ -1,81 +1,25 @@
 <!DOCTYPE HTML>
 <html>
-
-<table border="0" cellspacing="5" cellpadding="5">
-        <tbody><tr>
-            <td>Minimum price:</td>
-            <td><input type="text" id="min" name="min"></td>
-        </tr>
-        <tr>
-            <td>Maximum price:</td>
-            <td><input type="text" id="max" name="max"></td>
-        </tr>
-    </tbody></table>
-    <table id="example" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <th>Type</th>
-                <th>Year</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Available</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Coupe</td>
-                <td>2019</td>
-                <td>Toyoto GT86</td>
-                <td>$26,655</td>
-                <td>YES</td>
-            </tr>
-            <tr>
-                <td>Coupe</td>
-                <td>2021</td>
-                <td>Fard Mustang GT</td>
-                <td>$43,980</td>
-                <td>YES</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Type</th>
-                <th>Year</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Available</th>
-            </tr>
-        </tfoot>
-    </table>
-
-
-
-
-<script>
-$.fn.dataTable.ext.search.push(
-    function( settings, data, dataIndex ) {
-        var min = parseInt( $('#min').val(), 10 );
-        var max = parseInt( $('#max').val(), 10 );
-        var age = parseFloat( data[3] ) || 0; // use data for the age column
- 
-        if ( ( isNaN( min ) && isNaN( max ) ) ||
-             ( isNaN( min ) && age <= max ) ||
-             ( min <= age   && isNaN( max ) ) ||
-             ( min <= age   && age <= max ) )
-        {
-            return true;
-        }
-        return false;
-    }
-);
- 
-$(document).ready(function() {
-    var table = $('#example').DataTable();
-     
-    // Event listener to the two range filtering inputs to redraw on input
-    $('#min, #max').keyup( function() {
-        table.draw();
-    } );
-} );
-</script>
-<link href="StyleSheet.css" rel="stylesheet">
+<table style="width:100%">
+  <tr>
+    <th>Type</th>
+    <th>Year</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Available</th>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2019</td>
+    <td>Toyoto GT86</td>
+    <td>$26,655</td>
+    <td>YES</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2021</td>
+    <td>Fard Mustang GT</td>
+    <td>$43,980</td>
+    <td>YES</td>
+  </tr>
+</table>
