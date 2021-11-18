@@ -61,10 +61,6 @@ table, th, td {
 
 <div id="loader"></div>
 
-<div style="display:none;" id="myDiv" class="animate-bottom">
-  <h2>Tada!</h2>
-  <p>Some text in my newly loaded page..</p>
-</div>
 
 <script>
 var myVar;
@@ -72,8 +68,12 @@ var myVar;
 function myFunction() {
   myVar = setTimeout(showPage, 1000);
 }
-
-<div id = "myDiv">
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+</script>
+<div style="display:none;" id="myDiv" class="animate-bottom">
 <table style="width:100%">
   <tr>
     <th>Type</th>
@@ -337,4 +337,5 @@ table, th, td {
     <td>unknown</td>
   </tr>
 </table>
+</div>
 </html>
