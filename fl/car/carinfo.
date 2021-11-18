@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<table style="width:100%">
+  <tr>
+    <th>Type</th>
+    <th>Year</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Available</th>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2019</td>
+    <td>Toyoto GT86</td>
+    <td>$26,655</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2021</td>
+    <td>Fard Mustang GT</td>
+    <td>$43,980</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2019</td>
+    <td>Owdi TT-RS</td>
+    <td>$68,048</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2021</td>
+    <td>Owdi RS5</td>
+    <td>$76,145</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2018</td>
+    <td>BNW M4</td>
+    <td>$68,700</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2020</td>
+    <td>Chavy Camaro SS</td>
+    <td>$40,090</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2020</td>
+    <td>Honda Civic Coupe</td>
+    <td>$21,850</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2020</td>
+    <td>Chavy Corvette C8</td>
+    <td>$86,945</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2019</td>
+    <td>Rolls Ryce Wraith</td>
+    <td>$330,000</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2021</td>
+    <td>Naan Proto 400Z</td>
+    <td>$49,500</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2021</td>
+    <td>Luxuss LC500</td>
+    <td>$102,620</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2018</td>
+    <td>Chavy Camaro ZL1 1LE</td>
+    <td>$69,995</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2018</td>
+    <td>Dodje Challenger Demon</td>
+    <td>$86,390</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2020</td>
+    <td>Pohrse 911 Carrera 4S</td>
+    <td>$126,290</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2020</td>
+    <td>Luxuss RC-F</td>
+    <td>$68,485</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2009</td>
+    <td>Handa S2000</td>
+    <td>$31,986</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2021</td>
+    <td>Toyoto Supra</td>
+    <td>$53,990</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2018</td>
+    <td>BNW M2 Competition</td>
+    <td>$63,190</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>1990</td>
+    <td>Mazday Miata</td>
+    <td>$7,400</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2019</td>
+    <td>Chavy Corvette Z06</td>
+    <td>$68,998</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>1995</td>
+    <td>Handa NSX</td>
+    <td>$89,000</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Coupe</td>
+    <td>2001</td>
+    <td>Toyoto MR2</td>
+    <td>$7,999</td>
+    <td>Yes</td>
+  </tr>
+</table>
