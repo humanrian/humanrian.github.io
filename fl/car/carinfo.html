@@ -61,19 +61,7 @@ table, th, td {
 
 <div id="loader"></div>
 
-
-<script>
-var myVar;
-
-function myFunction() {
-  myVar = setTimeout(showPage, 1000);
-}
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("myDiv").style.display = "block";
-}
-</script>
-<div style="display:none;" id="myDiv" class="animate-bottom">
+<div id="myDiv" class="animate-bottom">
 <table style="width:100%">
   <tr>
     <th>Type</th>
@@ -338,4 +326,17 @@ table, th, td {
   </tr>
 </table>
 </div>
+
+<script>
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 1000);
+}
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+</script>
+
 </html>
