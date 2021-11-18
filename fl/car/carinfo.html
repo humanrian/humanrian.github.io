@@ -55,15 +55,19 @@ table, th, td {
   display: none;
   text-align: center;
 }
+
+h1   {text-align: center;}
+
 </style>
 </head>
 <body onload="myFunction()" style="margin:0;">
 
-<div id="loader">
-<h3>
-  Loading...
-</h3>
-</div>
+<div id="loader"></div>
+
+<div id="loaderp">
+<h1>
+  LOADING
+</h1>
 
 <div id="myDiv" class="animate-bottom">
 <table style="width:100%">
@@ -332,6 +336,7 @@ function myFunction() {
 }
 function showPage() {
   document.getElementById("loader").style.display = "none";
+  document.getElementById("loaderp").style.display = "none";
   document.getElementById("myDiv").style.display = "block";
 }
 </script>
