@@ -71,6 +71,10 @@ h1   {text-align: center;}
 </div>
 
 <div id="myDiv" class="animate-bottom">
+<b>Search the table for Type, Year, Name, Price or Available: 
+  <input id="gfg" type="text" 
+  placeholder="Search here">
+</b>
 <table style="width:100%">
   <tr>
     <th>Type</th>
@@ -79,6 +83,7 @@ h1   {text-align: center;}
     <th>Price</th>
     <th>Available</th>
   </tr>
+  <div id="geeks">
   <tr>
     <td>Coupe</td>
     <td>2019</td>
@@ -310,6 +315,7 @@ h1   {text-align: center;}
     <td>$77,960</td>
     <td>Yes</td>
   </tr>
+</div>
 </table>
 <table style="width:100%">
   <tr>
@@ -319,16 +325,24 @@ h1   {text-align: center;}
     <th>Price</th>
     <th>Available</th>
   </tr>
+  <div id="geeks">
   <tr>
-    <td>unknown</td>
-    <td>unknown</td>
-    <td>unknwon</td>
-    <td>unknown</td>
-    <td>unknown</td>
+    <td>Hatchback</td>
+    <td>2020</td>
+    <td>Toyoto Corolla</td>
+    <td>$23,415</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Hatchback</td>
+    <td>2021</td>
+    <td>Volkinsen Golf GTI</td>
+    <td>$32,665</td>
+    <td>Yes</td>
   </tr>
 </table>
 </div>
-
+</div>
 <script>
 var myVar;
 
@@ -341,5 +355,15 @@ function showPage() {
   document.getElementById("myDiv").style.display = "block";
 }
 </script>
-
+<script>
+  $(document).ready(function() {
+      $("#gfg").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#geeks tr").filter(function() {
+              $(this).toggle($(this).text()
+               .toLowerCase().indexOf(value) > -1)
+          });
+      });
+  });
+</script>
 </html>
