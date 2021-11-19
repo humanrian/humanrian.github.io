@@ -71,10 +71,6 @@ h1   {text-align: center;}
 </div>
 
 <div id="myDiv" class="animate-bottom">
-<b>Search the table for Type, Year, Name, Price or Available: 
-  <input id="gfg" type="text" 
-  placeholder="Search here">
-</b>
 <table style="width:100%">
   <tr>
     <th>Type</th>
@@ -83,7 +79,6 @@ h1   {text-align: center;}
     <th>Price</th>
     <th>Available</th>
   </tr>
-  <div id="geeks">
   <tr>
     <td>Coupe</td>
     <td>2019</td>
@@ -315,7 +310,6 @@ h1   {text-align: center;}
     <td>$77,960</td>
     <td>Yes</td>
   </tr>
-</div>
 </table>
 <table style="width:100%">
   <tr>
@@ -325,7 +319,6 @@ h1   {text-align: center;}
     <th>Price</th>
     <th>Available</th>
   </tr>
-  <div id="geeks">
   <tr>
     <td>Hatchback</td>
     <td>2020</td>
@@ -340,8 +333,50 @@ h1   {text-align: center;}
     <td>$32,665</td>
     <td>Yes</td>
   </tr>
+  <tr>
+    <td>Hatchback</td>
+    <td>2018</td>
+    <td>Handa Civic Type R</td>
+    <td>$46,490</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Hatchback</td>
+    <td>2018</td>
+    <td>Fard Focus RS</td>
+    <td>$35,650</td>
+    <td>Yes</td>
+  </tr>
 </table>
-</div>
+<table style="width:100%">
+  <tr>
+    <th>Type</th>
+    <th>Year</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Available</th>
+  </tr>
+  <tr>
+    <td>SUV</td>
+    <td>2014</td>
+    <td>Toyoto FJ Cruiser</td>
+    <td>$31,100</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Hatchback</td>
+    <td>2014</td>
+    <td>Handa Passport</td>
+    <td>$43,780</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Hatchback</td>
+    <td>2021</td>
+    <td>Fard Bronce 2-Door</td>
+    <td>$46,980</td>
+    <td>Yes</td>
+  </tr>
 </div>
 <script>
 var myVar;
@@ -354,16 +389,5 @@ function showPage() {
   document.getElementById("loaderp").style.display = "none";
   document.getElementById("myDiv").style.display = "block";
 }
-</script>
-<script>
-  $(document).ready(function() {
-      $("#gfg").on("keyup", function() {
-          var value = $(this).val().toLowerCase();
-          $("#geeks tr").filter(function() {
-              $(this).toggle($(this).text()
-               .toLowerCase().indexOf(value) > -1)
-          });
-      });
-  });
 </script>
 </html>
