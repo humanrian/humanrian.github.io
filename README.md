@@ -1,2 +1,2 @@
 # humanrian.github.io
-weather website thingy :)
+LOLLL YOU GOT PLAYEED
