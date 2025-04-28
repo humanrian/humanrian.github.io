@@ -16,3 +16,37 @@ text-align: center;
 <p1>Idk what to put here so this is here :P</p1>
 </body>
 </html>
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redirecting...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="6; url='https://www.youtube.com'" />
+  </head>
+  <body>
+    <p>Redirecting in <span id="countdown">5</span> seconds...</p>
+    <script>
+      var countdown = 5;
+      var countdownElement = document.getElementById("countdown");
+
+      function updateCountdown() {
+        countdown--;
+        countdownElement.textContent = countdown;
+        if (countdown <= 0) {
+          window.location.href = "https://www.youtube.com";
+        }
+      }
+
+      // Update the countdown every second
+      setInterval(updateCountdown, 1000);
+    </script>
+    <h1>HA YOU GOT PLAYED</h1>
+    <p>Sorry :C</p>
+    <p>Idk what to put here so go to youtube or <a href="https://humanrian.github.io/steamdirect.php" target="_blank">Steam</a>.</p>
+    <p>If the redirect doesn't work, <a href="https://www.youtube.com" target="_blank">click here</a>.</p>
+  </body>
+</html>
