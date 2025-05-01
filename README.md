@@ -1,2 +1,3 @@
 # humanrian.github.io
-LOLLL YOU GOT PLAYEED
+i am bad at this :C
+the clock was cause i bored
