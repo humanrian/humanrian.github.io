@@ -9,6 +9,15 @@
   <link rel="stylesheet" href="style.css">
   <script defer src="main.js"></script>
   <title>Clock</title>
+  <script>
+    let docTitle = document.title;
+    window.addEventListener("blur", () =>{
+      document.title = "Come backk ˙◠˙";
+    })
+    window.addEventListener("focus", () =>{
+      document.title = docTitle;
+    })
+  </script>
 </head>
 <body>
   <div class="clock">
