@@ -108,7 +108,7 @@ body {
   /* --- Positioning --- */
   position: fixed;   /* Position relative to the viewport (browser window) */
   top: 20px;         /* Distance from the top, same as your old button */
-  right: 20px;        /* Distance from the right, same as your old button */
+  left: 20px;        /* Distance from the right, same as your old button */
   /* margin: 0;      /* Reset any previous margins (optional, as top/right override) */
   z-index: 1000;     /* Ensure it's on top of other page elements */
 
@@ -168,4 +168,42 @@ body {
     -3.5em 3.5em 0 -3em #fff,
     -5em 0 0 -2.7em #fff,
     -3.5em -3.5em 0 -3em #fff;
+}
+
+#fullscreenBtn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+
+  /* Sizing and Appearance to be like the theme toggle's MOON/SUN element */
+  height: 4.2vmin;    
+  padding: 0 1.2vmin; /* Adjusted horizontal padding for the very small height */
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.4vmin;
+  color: var(--text-color);
+  background-color: var(--strip-bg);
+  border: 1px solid var(--text-color);
+  border-radius: 1.4vmin; /* Pill shape (half of height) to match the moon/sun's roundness */
+
+  cursor: pointer;
+  box-shadow: -0.5vmin -0.5vmin 1vmin -0.25vmin var(--strip-shadow-light), 0.5vmin 0.5vmin 1vmin var(--strip-shadow-dark);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+
+:root:fullscreen #fullscreenBtn {
+  transform: scale(1.1);
+  right: 30px;
+}
+
+:root:fullscreen .tdnn {
+  transform: scale(1.1);
+  left: 30px;
 }
