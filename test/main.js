@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const resizeAlertKey = 'resizeFixAlertShown_v2';
   const hasResizeAlertBeenShown = sessionStorage.getItem(resizeAlertKey); //rmb to change back to localstorage
   const isLikelyDesktop = window.innerWidth > 1000;
-  if (!hasAlertBeenShown && isLikelyDesktop) {
+  if (!hasResizeAlertBeenShown && isLikelyDesktop) {
     alert(
       "Welcome! For the best visual experience with the clock animation on this page, " +
       "if you notice any elements not looking quite right on first load, " +
