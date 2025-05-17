@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="main.js"></script>
+  <title>Clock</title> <script>
+    let docTitle = document.title;
+    window.addEventListener("blur", () =>{
+      document.title = "Come backk ˙◠˙";
+    })
+    window.addEventListener("focus", () =>{
+      document.title = docTitle;
+    })
+  </script>
+</head>
+<body>
+  <div class="top-controls">
+    <div onclick="tdnn()" class="tdnn" id="themeToggleAnimated">
+      <div class="moon"></div>
+    </div>
+    <button id="modeToggleBtn">Switch to Timer</button> <button id="fullscreenBtn" aria-label="Toggle Fullscreen">Fullscreen</button>
+  </div>
+
+  <div class="timer-container"> <div class="clock-display"> <div class="hour">
+        <div class="strip" id="hours-tens-strip">
+          <div class="number" data-value="0">0</div>
+          <div class="number" data-value="1">1</div>
+          <div class="number" data-value="2">2</div>
+        </div>
+        <div class="strip" id="hours-ones-strip">
+          <div class="number" data-value="0">0</div>
+          <div class="number" data-value="1">1</div>
+          <div class="number" data-value="2">2</div>
+          <div class="number" data-value="3">3</div>
+          <div class="number" data-value="4">4</div>
+          <div class="number" data-value="5">5</div>
+          <div class="number" data-value="6">6</div>
+          <div class="number" data-value="7">7</div>
+          <div class="number" data-value="8">8</div>
+          <div class="number" data-value="9">9</div>
+        </div>
+      </div>
+      <div class="minute">
+        <div class="strip" id="minutes-tens-strip">
+          <div class="number" data-value="0">0</div>
+          <div class="number" data-value="1">1</div>
+          <div class="number" data-value="2">2</div>
+          <div class="number" data-value="3">3</div>
+          <div class="number" data-value="4">4</div>
+          <div class="number" data-value="5">5</div>
+        </div>
+        <div class="strip" id="minutes-ones-strip">
+          <div class="number" data-value="0">0</div>
+          <div class="number" data-value="1">1</div>
+          <div class="number" data-value="2">2</div>
+          <div class="number" data-value="3">3</div>
+          <div class="number" data-value="4">4</div>
+          <div class="number" data-value="5">5</div>
+          <div class="number" data-value="6">6</div>
+          <div class="number" data-value="7">7</div>
+          <div class="number" data-value="8">8</div>
+          <div class="number" data-value="9">9</div>
+        </div>
+      </div>
+      <div class="second">
+        <div class="strip" id="seconds-tens-strip">
+          <div class="number" data-value="0">0</div>
+          <div class="number" data-value="1">1</div>
+          <div class="number" data-value="2">2</div>
+          <div class="number" data-value="3">3</div>
+          <div class="number" data-value="4">4</div>
+          <div class="number" data-value="5">5</div>
+        </div>
+        <div class="strip" id="seconds-ones-strip">
+          <div class="number" data-value="0">0</div>
+          <div class="number" data-value="1">1</div>
+          <div class="number" data-value="2">2</div>
+          <div class="number" data-value="3">3</div>
+          <div class="number" data-value="4">4</div>
+          <div class="number" data-value="5">5</div>
+          <div class="number" data-value="6">6</div>
+          <div class="number" data-value="7">7</div>
+          <div class="number" data-value="8">8</div>
+          `<div class="number" data-value="9">9</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timer-controls">
+      <button id="startPauseResumeBtn">Start</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+  </div>
+</body>
+</html>
