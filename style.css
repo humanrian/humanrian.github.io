@@ -8,7 +8,7 @@
 :root {
   --background-gradient-start: #c4d2ef;
   --background-gradient-end: #dfe6f6;
-  --text-color: #333; /* A general text color for light mode */
+  --text-color: #333;
   --number-color: #f9fbfd;
   --number-pop-color: #3e6ccb;
   --number-pop-bg: #dfe6f6;
@@ -21,18 +21,18 @@
   /* Variables for the animated toggle dimensions and specific colors */
   --toggleHeight: 16em;
   --toggleWidth: 30em;
-  --toggleBtnRadius: 10em; /* Radius of the moon/sun button */
+  --toggleBtnRadius: 10em;
 
-  --bgColor--night: #423966; /* Background of the toggle switch itself at night */
-  --mooncolor: #d9fbff;      /* Color of the moon shape */
+  --bgColor--night: #423966;
+  --mooncolor: #d9fbff;
 }
 
 body.dark-mode {
-  --background-gradient-start: #232931; /* Darker gradient start */
-  --background-gradient-end: #393e46;   /* Darker gradient end */
-  --text-color: #eeeeee;               /* Light text for dark mode */
+  --background-gradient-start: #232931;
+  --background-gradient-end: #393e46;
+  --text-color: #eeeeee;
   --number-color: #eeeeee;
-  --number-pop-color: #00adb5;         /* A contrasting pop color for dark mode */
+  --number-pop-color: #00adb5;
   --number-pop-bg: #393e46;
   --number-pop-shadow-light: #4a4f58;
   --number-pop-shadow-dark: #1c2025;
@@ -49,8 +49,8 @@ body {
   overflow: hidden;
   place-items: center;
   background: linear-gradient(-45deg, var(--background-gradient-start), var(--background-gradient-end));
-  color: var(--text-color); /* Apply general text color */
-  transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for theme change */
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .hour,
@@ -83,7 +83,7 @@ body {
 }
 
 .strip {
-  transition: transform 500ms ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease; /* Added transitions */
+  transition: transform 500ms ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease;
   border-radius: 1.333333333333333vmin;
   background-color: var(--strip-bg);
   box-shadow: -1vmin -1vmin 2vmin -0.5vmin var(--strip-shadow-light), 1vmin 1vmin 2vmin var(--strip-shadow-dark);
@@ -99,35 +99,34 @@ body {
 }
 
 
-.tdnn { /* The main container for the toggle switch */
+.tdnn {
   cursor: pointer;
 
   /* --- Size Control --- */
   font-size: 7%;
 
   /* --- Positioning --- */
-  position: fixed;   /* Position relative to the viewport (browser window) */
-  top: 20px;         /* Distance from the top, same as your old button */
-  left: 20px;        /* Distance from the right, same as your old button */
-  /* margin: 0;      /* Reset any previous margins (optional, as top/right override) */
-  z-index: 1000;     /* Ensure it's on top of other page elements */
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
 
-  /* --- Original appearance properties (should remain the same) --- */
-  height: var(--toggleHeight); /* e.g., 16em - now scaled by the smaller font-size */
-  width: var(--toggleWidth);   /* e.g., 30em - now scaled by the smaller font-size */
-  border-radius: var(--toggleHeight); /* To keep it pill-shaped */
+  /* --- Original appearance properties  --- */
+  height: var(--toggleHeight);
+  width: var(--toggleWidth);
+  border-radius: var(--toggleHeight);
   transition: background 500ms ease-in-out;
-  background: var(--bgColor--night); /* Default background: night */
+  background: var(--bgColor--night);
 }
 
-.tdnn.day { /* Styles for the toggle switch when it's in 'day' mode */
+.tdnn.day {
   background: #ffbf71; 
 }
 
-.moon { /* The tròn (circular) element that animates between moon and sun */
+.moon {
   position: absolute;
   display: block;
-  border-radius: 50%; /* Make it circular */
+  border-radius: 50%;
   transition: all 400ms ease-in-out;
 
   /* Initial position and appearance (moon) */
@@ -137,7 +136,7 @@ body {
   width: var(--toggleBtnRadius);
   height: var(--toggleBtnRadius);
   background: var(--bgColor--night);
-  box-shadow: /* Creates the crescent moon shape and starry sky effect */
+  box-shadow:
     3em 2.5em 0 0em var(--mooncolor) inset, /* Crescent */
     /* Subtle stars/dots around the moon */
     rgba(255, 255, 255, 0.1) 0em -7em 0 -4.5em,
@@ -150,14 +149,14 @@ body {
     rgba(255, 255, 255, 0.1) -1em 10em 0 -4.5em;
 }
 
-.moon.sun { /* Styles for the element when it represents the 'sun' */
-  top: 4.5em;    /* Adjusted position for sun */
-  left: 18em;   /* Adjusted position for sun */
-  transform: rotate(0deg); /* Sun doesn't need to be rotated */
+.moon.sun {
+  top: 4.5em;
+  left: 18em;
+  transform: rotate(0deg);
   width: 7em; 
-  height: 7em; /* Sun is a bit smaller */
-  background: #fff; /* Sun color - typically white or yellow */
-  box-shadow: /* Creates the sun shape and rays */
+  height: 7em;
+  background: #fff;
+  box-shadow:
     3em 3em 0 5em #fff inset, /* Inner glow of the sun */
     /* Sun rays */
     0 -5em 0 -2.7em #fff,
@@ -178,13 +177,13 @@ body {
 
   /* Sizing and Appearance to be like the theme toggle's MOON/SUN element */
   height: 4.2vmin;    
-  padding: 0 1.2vmin; /* Adjusted horizontal padding for the very small height */
+  padding: 0 1.2vmin;
   font-family: 'Roboto Mono', monospace;
   font-size: 1.4vmin;
   color: var(--text-color);
   background-color: var(--strip-bg);
   border: 1px solid var(--text-color);
-  border-radius: 1.4vmin; /* Pill shape (half of height) to match the moon/sun's roundness */
+  border-radius: 1.4vmin;
 
   cursor: pointer;
   box-shadow: -0.5vmin -0.5vmin 1vmin -0.25vmin var(--strip-shadow-light), 0.5vmin 0.5vmin 1vmin var(--strip-shadow-dark);
