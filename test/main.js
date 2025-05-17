@@ -345,10 +345,6 @@ document.addEventListener('DOMContentLoaded', () => {
     alert(changelogText);
     localStorage.setItem(changelogStorageKey, currentAppVersion);
   }
-
-    alert(changelogText);
-    localStorage.setItem(changelogStorageKey, currentAppVersion);
-  }
   if (typeof window.docTitle !== 'undefined') window.docTitle = document.title;
 });
 
