@@ -1,5 +1,6 @@
 const strips = [...document.querySelectorAll('.strip')];
-const numberSize = "8"; //in vmin, matches CSS .number height/width
+const numberSize = "8";
+
 
 function highlight(strip, d) {
   const targetNumber = strips[strip] ? strips[strip].querySelector(`.number:nth-of-type(${d + 1})`) : null;
@@ -10,6 +11,7 @@ function highlight(strip, d) {
     }, 950);
   }
 }
+
 
 function stripSlider(strip, number) {
   let d1 = Math.floor(number / 10);
@@ -25,6 +27,7 @@ function stripSlider(strip, number) {
   }
 }
 
+
 setInterval(() => {
   const time = new Date();
   const hours = time.getHours();
@@ -36,16 +39,11 @@ setInterval(() => {
 }, 1000);
 
 // --- Dark Mode Toggle Functionality ---
-
-// Get references to the body and the new animated toggle elements
 const bodyElement = document.body;
-const tdnnElement = document.getElementById('themeToggleAnimated'); // The main div of your animated toggle
-const moonElement = tdnnElement ? tdnnElement.querySelector('.moon') : null; // The inner div that becomes sun/moon
+const tdnnElement = document.getElementById('themeToggleAnimated');
+const moonElement = tdnnElement ? tdnnElement.querySelector('.moon') : null;
 
-/**
- * tdnn() - Called when the animated toggle is clicked.
- * Determines the target theme (light/dark) and calls setTheme.
- */
+
 function tdnn() {
   if (!tdnnElement || !moonElement) {
     console.error("Animated toggle elements not found!");
@@ -55,51 +53,82 @@ function tdnn() {
   const isCurrentlyDark = bodyElement.classList.contains('dark-mode');
 
   if (isCurrentlyDark) {
-    setTheme('light'); // If it's dark, switch to light
+    setTheme('light');
   } else {
-    setTheme('dark');  // If it's light, switch to dark
+    setTheme('dark');
   }
 }
 
-/**
- * setTheme - Applies the chosen theme to the page.
- * @param {string} theme - The theme to set ('light' or 'dark').
- */
+
 function setTheme(theme) {
   if (theme === 'dark') {
     bodyElement.classList.add('dark-mode');
-    if (tdnnElement) tdnnElement.classList.remove('day'); // Visual state for toggle: night
-    if (moonElement) moonElement.classList.remove('sun');  // Visual state for toggle: moon
+    if (tdnnElement) tdnnElement.classList.remove('day');
+    if (moonElement) moonElement.classList.remove('sun');
     localStorage.setItem('theme', 'dark');
     console.log("Theme set to Dark");
   } else {
     bodyElement.classList.remove('dark-mode');
-    if (tdnnElement) tdnnElement.classList.add('day');   // Visual state for toggle: day
-    if (moonElement) moonElement.classList.add('sun');    // Visual state for toggle: sun
+    if (tdnnElement) tdnnElement.classList.add('day');
+    if (moonElement) moonElement.classList.add('sun');
     localStorage.setItem('theme', 'light');
     console.log("Theme set to Light");
   }
 }
 
-// Check for saved theme preference on page load
+
 document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) {
-    setTheme(savedTheme); // This will also set the animated toggle's initial state
+    setTheme(savedTheme);
   } else {
-    setTheme('light'); // Default to light theme if no preference is saved
+    setTheme('light');
   }
   if (tdnnElement) {
-    // The onclick in HTML already handles this, but this is an alternative:
     // tdnnElement.addEventListener('click', tdnn);
   } else {
       console.warn("#themeToggleAnimated element not found on DOMContentLoaded. The toggle might not work if tdnn() is not global or the element is missing.");
+  }
+  //--- Resize Alert ---
+  const resizeAlertKey = 'resizeFixAlertShown_v1';
+  const hasAlertBeenShown = localStorage.getItem(resizeAlertKey);
+  const isLikelyDesktop = window.innerWidth > 1000;
+
+  if (!hasAlertBeenShown && isLikelyDesktop) {
+    alert(
+      "Welcome! For the best visual experience with the clock animation on this page, " +
+      "if you notice any elements not looking quite right on first load, " +
+      "please try briefly resizing your browser window (e.g., make it a little smaller, then back to full screen or your preferred size). " +
+      "This can help ensure all animations initialize perfectly.\n\n" +
+      "(You'll only see this message once on larger screens.)"
+    );
+    localStorage.setItem(resizeAlertKey, 'true');
+  }
+  //--- Changelog Alert ---
+  const currentAppVersion = "1.3";
+  const changelogStorageKey = 'changelogViewedVersion';
+  const lastViewedVersion = localStorage.getItem(changelogStorageKey);
+
+  if (lastViewedVersion !== currentAppVersion) {
+    const changelogText =
+      "What's New - App Version " + currentAppVersion + ":\n\n" + 
+      "- v1.0: Clock Launch\n" +
+      "  Initial release of the digital clock because I am bored.\n\n" +
+      "- v1.1: Dark Mode Introduced\n" +
+      "  A sleek dark theme is now available for comfortable viewing in low-light conditions.\n\n" +
+      "- v1.2: Upgraded Theme Toggle\n" +
+      "  The dark mode button has been enhanced to a more intuitive toggle switch.\n\n" +
+      "- v1.3: Fullscreen Mode Added\n" +
+      "  Enjoy an immersive, distraction-free view with the new fullscreen option!";
+
+    alert(changelogText);
+    localStorage.setItem(changelogStorageKey, currentAppVersion);
   }
 });
 
 
 const fullscreenButton = document.getElementById('fullscreenBtn');
-const docElement = document.documentElement; // The element to make fullscreen (usually the whole page)
+const docElement = document.documentElement;
 
 function enterFullscreen() {
   if (docElement.requestFullscreen) {
