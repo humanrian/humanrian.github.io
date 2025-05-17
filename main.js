@@ -96,3 +96,68 @@ document.addEventListener('DOMContentLoaded', () => {
       console.warn("#themeToggleAnimated element not found on DOMContentLoaded. The toggle might not work if tdnn() is not global or the element is missing.");
   }
 });
+
+
+const fullscreenButton = document.getElementById('fullscreenBtn');
+const docElement = document.documentElement; // The element to make fullscreen (usually the whole page)
+
+function enterFullscreen() {
+  if (docElement.requestFullscreen) {
+    docElement.requestFullscreen();
+  } else if (docElement.mozRequestFullScreen) { // Firefox
+    docElement.mozRequestFullScreen();
+  } else if (docElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+    docElement.webkitRequestFullscreen();
+  } else if (docElement.msRequestFullscreen) { // IE/Edge
+    docElement.msRequestFullscreen();
+  }
+}
+
+function exitFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) { // Firefox
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { // IE/Edge
+    document.msExitFullscreen();
+  }
+}
+
+function isFullscreen() {
+  return document.fullscreenElement ||
+         document.mozFullScreenElement ||
+         document.webkitFullscreenElement ||
+         document.msFullscreenElement;
+}
+
+function updateFullscreenButton() {
+  if (fullscreenButton) {
+    if (isFullscreen()) {
+      fullscreenButton.textContent = 'Exit Fullscreen';
+      fullscreenButton.setAttribute('aria-label', 'Exit Fullscreen');
+    } else {
+      fullscreenButton.textContent = 'Enter Fullscreen';
+      fullscreenButton.setAttribute('aria-label', 'Enter Fullscreen');
+    }
+  }
+}
+
+if (fullscreenButton) {
+  fullscreenButton.addEventListener('click', () => {
+    if (isFullscreen()) {
+      exitFullscreen();
+    } else {
+      enterFullscreen();
+    }
+  });
+}
+
+// Listen for fullscreen changes (e.g., user pressing Esc key) to update button text
+document.addEventListener('fullscreenchange', updateFullscreenButton);
+document.addEventListener('mozfullscreenchange', updateFullscreenButton);
+document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
+document.addEventListener('msfullscreenchange', updateFullscreenButton);
+
+updateFullscreenButton();
