@@ -186,7 +186,7 @@ body {
   grid-gap: 8vmin;
   position: relative;
   padding: 0 4vmin;
-  height: 4vmin;
+  height: 8vmin;
 }
 
 .hour,
@@ -196,6 +196,8 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-gap: 4vmin;
   align-items: start;
+  height: 100%;
+  overflow: hidden;
 }
 
 .strip {
