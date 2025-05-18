@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
   switchToClockMode();
   resetTimer(true);
 
-  alert("This is a test site, features are still being developed and tested on this page.");
+  /* alert("This is a test site, features are still being developed and tested on this page."); */
   
   const resizeAlertKey = 'resizeFixAlertShown_v2';
   const hasResizeAlertBeenShown = localStorage.getItem(resizeAlertKey);
