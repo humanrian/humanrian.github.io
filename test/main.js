@@ -282,6 +282,12 @@ if (modeToggleBtn) modeToggleBtn.addEventListener('click', toggleAppMode);
 
 // --- Initialization (`DOMContentLoaded`) ---
 document.addEventListener('DOMContentLoaded', () => {
+
+  const hourContainer = document.querySelector('.clock-display .hour');
+  const minuteContainer = document.querySelector('.clock-display .minute');
+  const secondContainer = document.querySelector('.clock-display .second');
+  const timePartContainers = [hourContainer, minuteContainer, secondContainer].filter(el => el != null);
+  
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) setTheme(savedTheme); else setTheme('light');
   if (tdnnElement && typeof tdnn === 'undefined' && tdnnElement.getAttribute('onclick')?.includes('tdnn()')) {
@@ -300,8 +306,10 @@ document.addEventListener('DOMContentLoaded', () => {
   switchToClockMode();
   resetTimer(true);
 
+  alert("This is a test site, features are still being developed and tested on this page.");
+  
   const resizeAlertKey = 'resizeFixAlertShown_v2';
-  const hasResizeAlertBeenShown = sessionStorage.getItem(resizeAlertKey); //rmb to change back to localstorage
+  const hasResizeAlertBeenShown = localStorage.getItem(resizeAlertKey);
   const isLikelyDesktop = window.innerWidth > 1000;
   if (!hasResizeAlertBeenShown && isLikelyDesktop) {
     alert(
@@ -314,21 +322,21 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem(resizeAlertKey, 'true');
   }
   //--- Changelog Alert ---
-  const currentAppVersion = "1.8";
+  const currentAppVersion = "1.8.1";
   const changelogStorageKey = 'changelogViewedVersion';
-  const lastViewedVersion = sessionStorage.getItem(changelogStorageKey); //rmb to change back to localstorage
+  const lastViewedVersion = localStorage.getItem(changelogStorageKey);
 
   if (lastViewedVersion !== currentAppVersion) {
     const changelogText =
       "What's New - App Version " + currentAppVersion + ":\n\n" +
-      "- v1.0: Clock Launch\n" +
+     /* "- v1.0: Clock Launch\n" +
       "  Initial release of the digital flip clock.\n\n" +
       "- v1.1: Dark Mode Introduced\n" +
       "  A sleek dark theme is now available for comfortable viewing in low-light conditions.\n\n" +
       "- v1.2: Upgraded Theme Toggle\n" +
       "  The dark mode button has been enhanced to a more intuitive toggle switch.\n\n" +
       "- v1.3: Fullscreen Mode Added\n" +
-      "  Enjoy an immersive, distraction-free view with the new fullscreen option!\n\n" +
+      "  Enjoy an immersive, distraction-free view with the new fullscreen option!\n\n" + */
       "- v1.4: Changelog Created\n" +
       "  Added this 'What's New' section to keep you updated!\n\n" +
       "- v1.5: Timer Created\n" +
@@ -340,7 +348,9 @@ document.addEventListener('DOMContentLoaded', () => {
       "- v1.7.1: Visual Bug Fix\n" +
       "  Corrected a visual bug related to highlighting appearing at the top of the page.\n\n" +
       "- v1.8: Timer Background Operation\n" +
-      "  The timer is now able to continue running in the background.";
+      "  The timer is now able to continue running in the background.\n\n" +
+      "- v1.8.1: Delayed Overflow Clipping (Experiment)\n" +
+      "  Experimenting with delaying the `overflow:hidden` on time segments.";
 
     alert(changelogText);
     localStorage.setItem(changelogStorageKey, currentAppVersion);
