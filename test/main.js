@@ -303,6 +303,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
   document.addEventListener('msfullscreenchange', updateFullscreenButton);
 
+  setTimeout(() => {
+    timePartContainers.forEach(container => {
+      if (container) {
+        container.style.overflow = 'visible';
+      }
+    });
+    console.log("Overflow set to 'visible' for hour, minute, second containers.");
+  }, 1);
+  
   switchToClockMode();
   resetTimer(true);
 
