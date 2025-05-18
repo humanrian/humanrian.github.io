@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     console.log("Overflow set to 'visible' for hour, minute, second containers.");
-  }, 1);
+  }, 100);
   
   switchToClockMode();
   resetTimer(true);
