@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   //--- Changelog Alert ---
   const currentAppVersion = "1.8.1";
-  const changelogStorageKey = 'changelogViewedVersion';
+  const changelogStorageKey = 'changelogTestViewedVersion';
   const lastViewedVersion = localStorage.getItem(changelogStorageKey);
 
   if (lastViewedVersion !== currentAppVersion) {
