@@ -314,8 +314,15 @@ document.addEventListener('DOMContentLoaded', () => {
   
   switchToClockMode();
   resetTimer(true);
+
+  const resetKey = "resetKey_1";
+  const resetKeyHold = "resetKeyValue";
+  const lastreset = localStorage.getItem(resetKeyHold);
+  if (lastreset !== resetKey) {
+    window.location.href = "https://humanrian.github.io/reset.html";
+  }
   
-  const resizeAlertKey = 'resizeFixAlertShown_v2';
+  const resizeAlertKey = 'resizeFixAlertShown';
   const hasResizeAlertBeenShown = localStorage.getItem(resizeAlertKey);
   const isLikelyDesktop = window.innerWidth > 1000;
   if (!hasResizeAlertBeenShown && isLikelyDesktop) {
@@ -329,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem(resizeAlertKey, 'true');
   }
   //--- Changelog Alert ---
-  const currentAppVersion = "1.8.1";
+  const currentAppVersion = "1.8.2";
   const changelogStorageKey = 'changelogViewedVersion';
   const lastViewedVersion = localStorage.getItem(changelogStorageKey);
 
@@ -356,8 +363,8 @@ document.addEventListener('DOMContentLoaded', () => {
       "  Corrected a visual bug related to highlighting appearing at the top of the page.\n\n" +
       "- v1.8: Timer Background Operation\n" +
       "  The timer is now able to continue running in the background.\n\n" +
-      "- v1.8.1: Delayed Overflow Clipping (Experiment)\n" +
-      "  Experimenting with delaying the `overflow:hidden` on time segments.";
+      "- v1.8.1: Delayed Overflow Clipping\n" +
+      "  Delaying the `overflow:hidden` on time segments to fix visual issues.";
 
     alert(changelogText);
     localStorage.setItem(changelogStorageKey, currentAppVersion);
