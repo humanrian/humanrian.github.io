@@ -5,12 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reset localStorage</title>
   <script>
-    alert("This will clear the localStorage");
     localStorage.clear();
     console.log('localStorage has been cleared.');
+
+    const resetKey = "resetKey_1";
+    const resetKeyHold = "resetKeyValue";
+    localStorage.setItem(resetKeyHold, resetKey);
+
+    console.log('resetKeyHold has been created and valye resetKey has been placed as its value');    
   </script>
 </head>
 <body>
+  <h1>This is to clear the localStorage for this website to ensure the best experience</h1>
   <p>Redirecting in <span id="countdown">5</span> seconds....</p>
   <script>
     var countdown = 5;
