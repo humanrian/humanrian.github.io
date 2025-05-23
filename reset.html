@@ -24,7 +24,7 @@
 
     function updateCountdown() {
       countdown--;
-      countdownElemenent = document.getElementById("countdown");
+      countdownElemenent.textContent = countdown;
       if (countdown <= 0) {
         window.location.href = "https://humanrian.github.io";
       }
