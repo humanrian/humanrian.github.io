@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset localStorage</title>
+  <script>
+    alert("This will clear the localStorage");
+    localStorage.clear();
+    console.log('localStorage has been cleared.');
+  </script>
+</head>
+<body>
+  <p>Redirecting in <span id="countdown">5</span> seconds....</p>
+  <script>
+    var countdown = 5;
+    var countdownElement = document.getElementById("countdown");
+
+    function updateCountdown() {
+      countdown--;
+      countdownElemenent = document.getElementById("countdown");
+      if (countdown <= 0) {
+        window.location.href = "https://humanrian.github.io";
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
