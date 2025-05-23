@@ -17,12 +17,12 @@
   --strip-bg: #dfe6f6;
   --strip-shadow-light: #f9fbfd;
   --strip-shadow-dark: #a9bee8;
+  --number-pop-bg-hover: rgba(0,0,0,0.05);
 
-  /* Variables for the animated toggle dimensions and specific colors */
+  /* Variables for the animated theme toggle dimensions and specific colors */
   --toggleHeight: 16em;
   --toggleWidth: 30em;
   --toggleBtnRadius: 10em;
-
   --bgColor--night: #423966;
   --mooncolor: #d9fbff;
 }
@@ -39,11 +39,12 @@ body.dark-mode {
   --strip-bg: #393e46;
   --strip-shadow-light: #4a4f58;
   --strip-shadow-dark: #1c2025;
+  --number-pop-bg-hover: rgba(255,255,255,0.08);
 }
 
 body {
   font-family: 'Roboto Mono', monospace;
-  font-size: 4vmin;
+  font-size: 4vmin; 
   min-height: 100vh;
   display: grid;
   overflow: hidden;
@@ -51,76 +52,41 @@ body {
   background: linear-gradient(-45deg, var(--background-gradient-start), var(--background-gradient-end));
   color: var(--text-color);
   transition: background 0.3s ease, color 0.3s ease;
+  padding: 20px 0;
 }
 
-.hour,
-.minute,
-.second {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 4vmin;
-  grid-row: 1/2;
-  align-items: start;
-}
-
-.number {
-  user-select: none;
-  width: 8vmin;
-  height: 8vmin;
-  display: grid;
-  place-items: center;
-  color: var(--number-color);
-  transition: all 500ms 100ms ease;
-  border-radius: 50%;
-}
-
-.number-pop {
-  color: var(--number-pop-color);
-  font-weight: bold;
-  transform: scale(1.3);
-  background-color: var(--number-pop-bg);
-  box-shadow: -1vmin -1vmin 2vmin -0.5vmin var(--number-pop-shadow-light), 1vmin 1vmin 2vmin var(--number-pop-shadow-dark);
-}
-
-.strip {
-  transition: transform 500ms ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 1.333333333333333vmin;
-  background-color: var(--strip-bg);
-  box-shadow: -1vmin -1vmin 2vmin -0.5vmin var(--strip-shadow-light), 1vmin 1vmin 2vmin var(--strip-shadow-dark);
-}
-
-.clock {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 8vmin;
-  height: 4vmin;
-  position: relative;
-  padding: 0 4vmin;
-}
-
-
-.tdnn {
-  cursor: pointer;
-
-  /* --- Size Control --- */
-  font-size: 7%;
-
-  /* --- Positioning --- */
+/* Controls at the top of the screen */
+.top-controls {
   position: fixed;
   top: 20px;
-  left: 20px;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   z-index: 1000;
+  pointer-events: none;
+}
 
-  /* --- Original appearance properties  --- */
+.top-controls > * {
+  pointer-events: auto;
+}
+
+/* Theme Toggle Button (TDNN) */
+.tdnn {
+  cursor: pointer;
+  font-size: 7%;
   height: var(--toggleHeight);
   width: var(--toggleWidth);
   border-radius: var(--toggleHeight);
   transition: background 500ms ease-in-out;
   background: var(--bgColor--night);
+  position: relative;
 }
 
 .tdnn.day {
-  background: #ffbf71; 
+  background: #ffbf71;
 }
 
 .moon {
@@ -128,7 +94,6 @@ body {
   display: block;
   border-radius: 50%;
   transition: all 400ms ease-in-out;
-
   /* Initial position and appearance (moon) */
   top: 3em;
   left: 3em;
@@ -137,7 +102,7 @@ body {
   height: var(--toggleBtnRadius);
   background: var(--bgColor--night);
   box-shadow:
-    3em 2.5em 0 0em var(--mooncolor) inset, /* Crescent */
+    3em 2.5em 0 0em var(--mooncolor) inset, /* Crescent shape */
     /* Subtle stars/dots around the moon */
     rgba(255, 255, 255, 0.1) 0em -7em 0 -4.5em,
     rgba(255, 255, 255, 0.1) 3em 7em 0 -4.5em,
@@ -153,12 +118,12 @@ body {
   top: 4.5em;
   left: 18em;
   transform: rotate(0deg);
-  width: 7em; 
+  width: 7em;
   height: 7em;
   background: #fff;
   box-shadow:
     3em 3em 0 5em #fff inset, /* Inner glow of the sun */
-    /* Sun rays */
+     /* Sun rays */
     0 -5em 0 -2.7em #fff,
     3.5em -3.5em 0 -3em #fff,
     5em 0 0 -2.7em #fff,
@@ -169,14 +134,27 @@ body {
     -3.5em -3.5em 0 -3em #fff;
 }
 
-#fullscreenBtn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
+/* Mode Toggle Button*/
+#modeToggleBtn {
+  height: 4.2vmin;
+  padding: 0 1.5vmin;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.4vmin;
+  color: var(--text-color);
+  background-color: var(--strip-bg);
+  border: 1px solid var(--text-color);
+  border-radius: 1.4vmin;
+  cursor: pointer;
+  box-shadow: -0.5vmin -0.5vmin 1vmin -0.25vmin var(--strip-shadow-light), 0.5vmin 0.5vmin 1vmin var(--strip-shadow-dark);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+  margin: 0 auto;
+}
 
-  /* Sizing and Appearance to be like the theme toggle's MOON/SUN element */
-  height: 4.2vmin;    
+/* Fullscreen Button*/
+#fullscreenBtn {
+  position: relative;
+  height: 4.2vmin;
   padding: 0 1.2vmin;
   font-family: 'Roboto Mono', monospace;
   font-size: 1.4vmin;
@@ -184,11 +162,9 @@ body {
   background-color: var(--strip-bg);
   border: 1px solid var(--text-color);
   border-radius: 1.4vmin;
-
   cursor: pointer;
   box-shadow: -0.5vmin -0.5vmin 1vmin -0.25vmin var(--strip-shadow-light), 0.5vmin 0.5vmin 1vmin var(--strip-shadow-dark);
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -196,13 +172,117 @@ body {
   white-space: nowrap;
 }
 
-
-:root:fullscreen #fullscreenBtn {
-  transform: scale(1.1);
-  right: 30px;
+/* Main container for clock/timer display and timer controls */
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4vmin;
 }
 
-:root:fullscreen .tdnn {
-  transform: scale(1.1);
-  left: 30px;
+.clock-display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 8vmin;
+  position: relative;
+  padding: 0 4vmin;
+  height: 8vmin;
+}
+
+.hour,
+.minute,
+.second {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 4vmin;
+  align-items: start;
+  height: 100%;
+  overflow: hidden;
+}
+
+.strip {
+  transition: transform 500ms ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 1.333333333333333vmin;
+  background-color: var(--strip-bg);
+  box-shadow: -1vmin -1vmin 2vmin -0.5vmin var(--strip-shadow-light), 1vmin 1vmin 2vmin var(--strip-shadow-dark);
+}
+
+.number {
+  user-select: none;
+  width: 8vmin;
+  height: 8vmin;
+  display: grid;
+  place-items: center;
+  color: var(--number-color);
+  transition: all 500ms 100ms ease;
+  border-radius: 50%;
+}
+
+/* Style for when numbers are clickable*/
+.timer-container.timer-setting-mode .clock-display .number {
+  cursor: pointer;
+}
+
+.timer-container.timer-setting-mode .clock-display .number:hover {
+  background-color: var(--number-pop-bg-hover);
+}
+
+
+.number-pop {
+  color: var(--number-pop-color);
+  font-weight: bold;
+  transform: scale(1.3);
+  background-color: var(--number-pop-bg);
+  box-shadow: -1vmin -1vmin 2vmin -0.5vmin var(--number-pop-shadow-light), 1vmin 1vmin 2vmin var(--number-pop-shadow-dark);
+}
+
+/* Timer Control Buttons*/
+.timer-controls {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.timer-controls.hidden {
+  display: none !important;
+}
+
+.timer-controls button {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 2vmin;
+  min-width: 100px;
+  text-align: center;
+  padding: 1.5vmin 2.5vmin;
+  border: none;
+  border-radius: 1vmin;
+  cursor: pointer;
+  background-color: var(--number-pop-color);
+  color: var(--number-pop-bg);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: -0.5vmin -0.5vmin 1vmin -0.25vmin var(--strip-shadow-light), 0.5vmin 0.5vmin 1vmin var(--strip-shadow-dark);
+}
+
+.timer-controls button:hover {
+  transform: translateY(-10px);
+}
+
+.timer-controls button:active {
+  transform: translateY(4px);
+}
+
+:root:fullscreen .top-controls {
+  padding: 0 30px; */
+}
+:root:fullscreen .top-controls > * {
+ transform: scale(1.1);
+}
+
+
+:root:fullscreen .timer-controls {
+  bottom: 40px;
+  right: 40px;
 }
